@@ -1,0 +1,12 @@
+Individuals_in_1000Genomes_Global_Model.bed filter=lfs diff=lfs merge=lfs -text
+Individuals_in_1000Genomes_Global_Test.bed filter=lfs diff=lfs merge=lfs -text
+Chr19.hg38_TGP_EUR_Populations_Model_Input.bed filter=lfs diff=lfs merge=lfs -text
+Chr19.hg38_TGP_EUR_Populations_Test_Input.bed filter=lfs diff=lfs merge=lfs -text
+Individuals_in_1000Genomes_Global_Model.bim filter=lfs diff=lfs merge=lfs -text
+Individuals_in_1000Genomes_Global_Test.bim filter=lfs diff=lfs merge=lfs -text
+Chr19.hg38_TGP_EUR_Populations_Model_Input.bim filter=lfs diff=lfs merge=lfs -text
+Chr19.hg38_TGP_EUR_Populations_Test_Input.bim filter=lfs diff=lfs merge=lfs -text
+Individuals_in_1000Genomes_Global_Test.fam filter=lfs diff=lfs merge=lfs -text
+Chr19.hg38_TGP_EUR_Populations_Model_Input.fam filter=lfs diff=lfs merge=lfs -text
+Chr19.hg38_TGP_EUR_Populations_Test_Input.fam filter=lfs diff=lfs merge=lfs -text
+Individuals_in_1000Genomes_Global_Model.fam filter=lfs diff=lfs merge=lfs -text
