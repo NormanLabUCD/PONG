@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Genelle F Harrison" />
+  <title>Pong User Pipeline and Tutorial</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Pong User Pipeline and Tutorial</h1>
+<p class="author">Genelle F Harrison</p>
+<p class="date">3/31/2021</p>
+</header>
+<p><code>{r setup, include=FALSE} library(knitr)</code></p>
+<h2 id="kirpong">KIRpong</h2>
+<p>Author: Laura A Leaton, Genelle F Harrison, Paul Norman Maintainer: Genelle F. Harrison <a href="mailto:GenelleFH@gmail.com" class="email">GenelleFH@gmail.com</a> Description: PONG is a modification of HIBAG and was designed to impute KIR3DL1/S1 alleles from chromosome 19 WG-SNP data. PONG uses the R statistical programming language. We provide models built from the Global populations availible in the 1000 Genomes Project for HG19 and HG38. PONG leverages the functions built in HIBAG using attribute bagging and an ensemble classifier method with haplotype inference for SNPs and KIR3DL1/S1 types. Please use with an R version &lt; 4.0.</p>
+<h2 id="citing-kirpong">Citing KIRpong</h2>
+<p>If you use KIRpong for your study please cite: Harrison, G.F., Leaton L.A., E.A. Harrison, M.K. Viken, J. Shortt, C.R. Gignoux, B.A. Lie, D. Vukcevic, S. Leslie, and P.J. Norman, Allele imputation for the Killer cell Immunoglobulin-like Receptor KIR3DL1/S1. bioRxiv, 2021: p. 2021.05.13.443975.</p>
+<h2 id="installing-kirpong">Installing KIRpong</h2>
+<p>The best way to install KIRpong is through the command line. R CMD INSTALL KIRpong/</p>
+<h2 id="models-for-kir3dl1s1-imputation">Models for KIR3DL1/S1 imputation</h2>
+<p>KIRpong relies on a model built from a training data set. We have created a model that uses data from the 1000 Genomes project. To build this model we randomly sampled 50% of individuals from each of the 26 Global populations. We built this model both for HG19 and HG38. Users can also build a model with their own training sets using the following pipeline.</p>
+<pre class="{r}"><code>library(KIRpong)</code></pre>
+<h2 id="building-your-own-kirpong-model">Building your own KIRpong Model</h2>
+<p>To build a model you will need WG-SNP data in Plink binary format (.bed, .bim, .fam) coupled with KIR3DL1/S1 alleles. Duplicated positions and rsIDs should be removed and SNPs with a count of two or less should be removed. This tutorial provides an example of building a model built from individuals in the European Super population. The Plink files can be found in this folder: KIRpong/inst/extdata/Chr19.hg38_TGP_EUR_Populations_Model_Input.</p>
+<h2 id="import-plink-bed-files">Import Plink BED files</h2>
+<p>To run this tutorial, set the working directory to the directory containing the KIRpong package. The following is an example. If building your own model specify the file path to your Plink binary files.Be sure the set the assembly to “hg19” or “hg38” depending on what you are using.</p>
+<pre class="{r}"><code>setwd(&quot;/Users/genelleharrison/Dropbox/UC_Denver/Projects/KIRpong/Scripts/Versions&quot;)
+path_inputs=getwd()
+
+geno = hlaBED2Geno(bed.fn= paste0(path_inputs,&quot;/KIRpong/inst/extdata/Chr19.hg38_TGP_EUR_Populations_Model_Input.bed&quot;), fam.fn= paste0(path_inputs,&quot;/KIRpong/inst/extdata/Chr19.hg38_TGP_EUR_Populations_Model_Input.fam&quot;),bim.fn= paste0(path_inputs,&quot;/KIRpong/inst/extdata/Chr19.hg38_TGP_EUR_Populations_Model_Input.bim&quot;), assembly=&quot;hg38&quot;)
+</code></pre>
+<h2 id="import-kir3dl1s1-allele-data">Import KIR3DL1/S1 allele data</h2>
+<p>If you are running with your own KIR3DL1/S1 the first column will be the sampleID and columns 2 and 3 will be the KIR3DL1/S1 alleles. Here is an example:</p>
+<pre><code>SampleID Allele1 Allele2
+NA06989 *00501 *01301
+NA06994 *00402 *00501
+NA07051 *00101 *01301
+NA07347 *00101 *00700
+NA10847 *01301 *01301
+NA11892 *00501 *01502
+NA11894 *00101 *00501
+NA11918 *00200 *00401
+NA11919 *00101 *00401</code></pre>
+<pre class="{r}"><code>D &lt;- read.table(paste0(path_inputs,&quot;/KIRpong/inst/extdata/EUR_KIR_Typing_Alleles_For_Model.txt&quot;), header=TRUE, stringsAsFactors = FALSE)</code></pre>
+<h2 id="building-the-model">Building the model</h2>
+<p>The functions shown herein are from the program HIBAG, which is why the functions say “hla”. The fourth arguement in the “snpid” object is where the flanking regions are set. Currently we will sample 10bp upstream and downstream of the KIR gene cluster.</p>
+<p>```{r, warning = FALSE, results= “hide”} train.HLA &lt;- hlaAllele(D<span class="math inline"><em>S</em><em>a</em><em>m</em><em>p</em><em>l</em><em>e</em><em>I</em><em>D</em>, <em>H</em>1 = <em>D</em></span>Allele1, H2=D<span class="math inline">$Allele2, locus="KIR3DLS1", assembly="hg38") summary(train.HLA) snpid &lt;- hlaFlankingSNP(geno$</span>snp.id, geno<span class="math inline">$snp.position, "KIR3DLS1", 10*10, assembly="hg38") train.geno &lt;- hlaGenoSubset(geno, snp.sel=match(snpid, geno$</span>snp.id))</p>
+<p>set.seed(1000) model &lt;- hlaAttrBagging(train.HLA, train.geno, nclassifier=100, verbose.detail=TRUE)</p>
+<p>summary(model) model.obj &lt;- hlaModelToObj(model) save(model.obj, file=paste0(path_inputs,“/KIRpong/data/Tutorial_Model_EUR.RData”))</p>
+<pre><code>
+## Imputing KIR3DL1/S1 alleles using KIRpong:
+Imputation of KIR3DL1/S1 alleles can be done using one of our pre-built models or with a model you built using the pipeline above. In this tutorial we will use the model built above from European data in the 1000 Genomes Project. The input data is again Plink binary files (.bed, .bim, .fam) as well as the model (model_file.RData). 
+
+```{r}
+library(KIRpong)
+setwd(&quot;/Users/genelleharrison/Dropbox/UC_Denver/Projects/KIRpong/Scripts/Versions&quot;)
+path_inputs=getwd()
+
+bim_file=paste0(path_inputs,&quot;/KIRpong/inst/extdata/Chr19.hg38_TGP_EUR_Populations_Test_Input.bim&quot;)
+fam_file=paste0(path_inputs,&quot;/KIRpong/inst/extdata/Chr19.hg38_TGP_EUR_Populations_Test_Input.fam&quot;)
+bed_file=paste0(path_inputs,&quot;/KIRpong/inst/extdata/Chr19.hg38_TGP_EUR_Populations_Test_Input.bed&quot;)
+model_file=paste0(path_inputs,&quot;/KIRpong/data/Tutorial_Model_EUR.RData&quot;) 
+
+</code></pre>
+<h2 id="imputing-kir3dl1s1-alleles-using-kirpong">Imputing KIR3DL1/S1 alleles using KIRpong:</h2>
+<p>Next we can run a PONG imputation of KIR3DL1S1 alleles. Be sure to make sure you have specified the genome assembly and that it matches the model.</p>
+<pre class="{r}"><code>path_to_file=paste0(path_inputs,&quot;/KIRpong/inst/extdata/Results&quot;) 
+HLA_allele=&quot;KIR3DLS1&quot;        
+setwd(path_to_file)
+
+model.list=get(load(model_file))
+hla.id=HLA_allele
+yourgeno=hlaBED2Geno(bed.fn=bed_file, fam.fn=fam_file, bim.fn=bim_file, assembly=&quot;hg38&quot;)
+print(hla.id)
+model=hlaModelFromObj(model.list) 
+pred.guess=predict.hlaAttrBagClass(model, yourgeno, type=&quot;response+prob&quot;, match.type = &quot;Position&quot;)
+pred.guess_value = as.data.frame(pred.guess$value)
+pred.guess_postprob = as.data.frame(pred.guess$postprob)
+
+write.table(pred.guess_value, paste0(path_inputs,&quot;/KIRpong/inst/extdata/Results/Chr19.hg38_TGP_EUR_Populations_Results_Prediction_Alleles.txt&quot;,quote=F,sep=&quot;\t&quot;,row.names=F,col.names=T))
+            
+write.table(pred.guess_value, paste0(path_inputs, &quot;/inst/extdata/Results/Chr19.hg38_TGP_EUR_Populations_Results_Prediction_Alleles_v31txt&quot;),quote=F,sep=&quot;\t&quot;,row.names=F,col.names=T)
+</code></pre>
+</body>
+</html>

@@ -3,6 +3,7 @@ title: "Pong User Pipeline and Tutorial"
 author: "Genelle F Harrison"
 date: "3/31/2021"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
 ---
