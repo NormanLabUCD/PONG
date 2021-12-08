@@ -5,7 +5,6 @@
 inst/extdata/Individuals_in_1000Genomes_Global_Test.bim filter=lfs diff=lfs merge=lfs -text
 inst/extdata/Individuals_in_1000Genomes_Global_Test.bed filter=lfs diff=lfs merge=lfs -text
 inst/extdata/Individuals_in_1000Genomes_Global_Model.bed filter=lfs diff=lfs merge=lfs -text
-/LICENSE filter=lfs diff=lfs merge=lfs -text
 *.DS_Store filter=lfs diff=lfs merge=lfs -text
 /DESCRIPTION filter=lfs diff=lfs merge=lfs -text
 /NAMESPACE filter=lfs diff=lfs merge=lfs -text
@@ -26,4 +25,3 @@ inst/extdata/Individuals_in_1000Genomes_Global_Model.bed filter=lfs diff=lfs mer
 /src/Makevars filter=lfs diff=lfs merge=lfs -text
 *.bib filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
-*.md filter=lfs diff=lfs merge=lfs -text
